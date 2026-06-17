@@ -1,0 +1,17 @@
+const City = require("../models/City");
+
+const getCities = async (req, res) => {
+  try {
+    const cities = await City.find();
+
+    res.status(200).json(cities);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+module.exports = {
+  getCities,
+};
